@@ -9,6 +9,16 @@ PlaszymeDB is a comprehensive plastic-degrading enzyme prediction and analysis p
 ![Image 2](images/2.png)
 ![Image 3](images/3.png)
 ![Image 4](images/4.png)
+
+### Demo Video
+
+<video src="demo/plaszymeDB_and_plaszymeModel.mp4" controls width="100%">
+  <source src="demo/plaszymeDB_and_plaszymeModel.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+*Demo: PlaszymeDB Database and Prediction Model Usage*
+
 ### Core Data
 - **474** plastic-degrading enzymes
 - **34** types of plastic polymers
