@@ -1,0 +1,48 @@
+# PlaszymeDB URL重写规则
+RewriteEngine On
+
+# 处理interactive_tree路径的重写
+RewriteRule ^interactive_tree/([a-zA-Z_]+)/?$ interactive_tree.php?dataset=$1 [L,QSA]
+RewriteRule ^interactive_tree/([a-zA-Z_]+)/([a-zA-Z]+)/?$ interactive_tree.php?dataset=$1&mode=$2 [L,QSA]
+RewriteRule ^interactive_tree/([a-zA-Z_]+)/([a-zA-Z]+)/([a-zA-Z]+)/?$ interactive_tree.php?dataset=$1&mode=$2&colorscheme=$3 [L,QSA]
+
+# 处理API端点
+RewriteRule ^api/tree/([a-zA-Z_]+)/?$ interactive_tree.php?dataset=$1&format=json [L,QSA]
+RewriteRule ^api/dataset-stats/?$ api_dataset_stats.php [L,QSA]
+
+# 静态文件缓存
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpg "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/pdf "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
+
+# 安全设置
+<Files "*.php">
+    Order allow,deny
+    Allow from all
+</Files>
+
+<Files "*.log">
+    Order deny,allow
+    Deny from all
+</Files>
+
+# 压缩设置
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+</IfModule>

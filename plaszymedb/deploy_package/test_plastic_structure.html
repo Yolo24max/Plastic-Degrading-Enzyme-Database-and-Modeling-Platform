@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试塑料化学结构功能</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #005eb8;
+            padding-bottom: 10px;
+        }
+        .btn {
+            background: #005eb8;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #004a94;
+        }
+        pre {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        .success {
+            color: #28a745;
+        }
+        .error {
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <h1>塑料化学结构功能测试</h1>
+    
+    <div class="test-section">
+        <h2>1. 测试 PHP API - 获取所有塑料数据</h2>
+        <button class="btn" onclick="testGetAllPlastics()">测试获取所有塑料</button>
+        <pre id="result-all"></pre>
+    </div>
+    
+    <div class="test-section">
+        <h2>2. 测试 PHP API - 获取特定塑料</h2>
+        <select id="plastic-select" style="padding: 8px; margin-right: 10px;">
+            <option value="PET">PET</option>
+            <option value="PE">PE</option>
+            <option value="PLA">PLA</option>
+            <option value="PCL">PCL</option>
+            <option value="PBS">PBS</option>
+            <option value="PBAT">PBAT</option>
+            <option value="PHB">PHB</option>
+            <option value="PU">PU</option>
+            <option value="PVA">PVA</option>
+            <option value="PS">PS</option>
+        </select>
+        <button class="btn" onclick="testGetSpecificPlastic()">测试获取塑料</button>
+        <pre id="result-specific"></pre>
+    </div>
+    
+    <div class="test-section">
+        <h2>3. 测试名称映射</h2>
+        <button class="btn" onclick="testNameMapping('P3HB_CO_3MP')">测试 P3HB_CO_3MP</button>
+        <button class="btn" onclick="testNameMapping('O_PVA')">测试 O_PVA</button>
+        <pre id="result-mapping"></pre>
+    </div>
+    
+    <div class="test-section">
+        <h2>4. SMILES 数据列表</h2>
+        <div id="smiles-list"></div>
+    </div>
+
+    <script>
+        // 测试获取所有塑料数据
+        async function testGetAllPlastics() {
+            const resultDiv = document.getElementById('result-all');
+            resultDiv.textContent = '加载中...';
+            
+            try {
+                const response = await fetch('get_plastic_smiles.php');
+                const data = await response.json();
+                
+                if (data.success) {
+                    resultDiv.innerHTML = '<span class="success">✓ 成功</span>\n' + 
+                        JSON.stringify(data, null, 2);
+                    
+                    // 显示SMILES列表
+                    displaySMILESList(data.data);
+                } else {
+                    resultDiv.innerHTML = '<span class="error">✗ 失败</span>\n' + 
+                        JSON.stringify(data, null, 2);
+                }
+            } catch (error) {
+                resultDiv.innerHTML = '<span class="error">✗ 错误</span>\n' + error.message;
+            }
+        }
+        
+        // 测试获取特定塑料
+        async function testGetSpecificPlastic() {
+            const plastic = document.getElementById('plastic-select').value;
+            const resultDiv = document.getElementById('result-specific');
+            resultDiv.textContent = '加载中...';
+            
+            try {
+                const response = await fetch(`get_plastic_smiles.php?plastic=${plastic}`);
+                const data = await response.json();
+                
+                if (data.success) {
+                    resultDiv.innerHTML = '<span class="success">✓ 成功</span>\n' + 
+                        JSON.stringify(data, null, 2);
+                } else {
+                    resultDiv.innerHTML = '<span class="error">✗ 失败</span>\n' + 
+                        JSON.stringify(data, null, 2);
+                }
+            } catch (error) {
+                resultDiv.innerHTML = '<span class="error">✗ 错误</span>\n' + error.message;
+            }
+        }
+        
+        // 测试名称映射
+        async function testNameMapping(plasticName) {
+            const resultDiv = document.getElementById('result-mapping');
+            resultDiv.textContent = `测试 ${plasticName}...`;
+            
+            try {
+                const response = await fetch(`get_plastic_smiles.php?plastic=${plasticName}`);
+                const data = await response.json();
+                
+                if (data.success) {
+                    resultDiv.innerHTML = '<span class="success">✓ 映射成功</span>\n' + 
+                        JSON.stringify(data, null, 2);
+                } else {
+                    resultDiv.innerHTML = '<span class="error">✗ 映射失败</span>\n' + 
+                        JSON.stringify(data, null, 2);
+                }
+            } catch (error) {
+                resultDiv.innerHTML = '<span class="error">✗ 错误</span>\n' + error.message;
+            }
+        }
+        
+        // 显示SMILES列表
+        function displaySMILESList(plastics) {
+            const listDiv = document.getElementById('smiles-list');
+            let html = '<table style="width: 100%; border-collapse: collapse;">';
+            html += '<tr style="background: #f8f9fa;"><th style="padding: 10px; border: 1px solid #ddd;">塑料名称</th><th style="padding: 10px; border: 1px solid #ddd;">SMILES</th></tr>';
+            
+            for (const [name, data] of Object.entries(plastics)) {
+                html += `<tr>
+                    <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">${data.name}</td>
+                    <td style="padding: 10px; border: 1px solid #ddd; font-family: monospace; font-size: 0.9em; word-break: break-all;">
+                        ${data.smiles || `<span class="error">${data.note}</span>`}
+                    </td>
+                </tr>`;
+            }
+            
+            html += '</table>';
+            listDiv.innerHTML = html;
+        }
+        
+        // 页面加载时自动测试
+        window.addEventListener('DOMContentLoaded', () => {
+            testGetAllPlastics();
+        });
+    </script>
+</body>
+</html>
+

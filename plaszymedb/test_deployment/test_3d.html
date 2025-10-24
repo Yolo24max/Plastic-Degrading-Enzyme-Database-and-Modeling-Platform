@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D结构测试页面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .controls {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 6px;
+        }
+        .btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
+        .btn.success {
+            background: #28a745;
+        }
+        .btn.danger {
+            background: #dc3545;
+        }
+        #structure-viewer {
+            width: 100%;
+            height: 500px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background: #f8f9fa;
+        }
+        .status {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 4px;
+            background: #e9ecef;
+        }
+        .status.loading {
+            background: #fff3cd;
+            color: #856404;
+        }
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+        }
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        .log {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            max-height: 200px;
+            overflow-y: auto;
+            margin-top: 20px;
+        }
+    </style>
+    <!-- Mol* Library -->
+    <script src="https://cdn.jsdelivr.net/npm/molstar@latest/build/viewer/molstar.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/molstar@latest/build/viewer/molstar.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🧬 PlaszymeDB 3D结构测试页面</h1>
+        
+        <div class="controls">
+            <h3>测试控制</h3>
+            <button class="btn" onclick="testConnection()">测试API连接</button>
+            <button class="btn" onclick="checkMolstar()">检查Mol*库</button>
+            <button class="btn success" onclick="loadTestStructure()">加载测试结构</button>
+            <button class="btn danger" onclick="clearViewer()">清除结构</button>
+            
+            <br><br>
+            <label for="plz-input">PLZ_ID:</label>
+            <input type="text" id="plz-input" value="00142236f3" style="margin: 0 10px; padding: 5px;">
+            <button class="btn" onclick="loadCustomStructure()">加载自定义结构</button>
+        </div>
+
+        <div class="status" id="status">准备就绪</div>
+
+        <div id="structure-viewer"></div>
+
+        <div class="log" id="log"></div>
+    </div>
+
+    <script>
+        let molstarViewer = null;
+        let isInitialized = false;
+
+        // 日志记录
+        function log(message, type = 'info') {
+            const logElement = document.getElementById('log');
+            const timestamp = new Date().toLocaleTimeString();
+            const logEntry = `[${timestamp}] ${type.toUpperCase()}: ${message}\n`;
+            logElement.textContent += logEntry;
+            logElement.scrollTop = logElement.scrollHeight;
+            console.log(message);
+        }
+
+        // 更新状态
+        function updateStatus(message, type = '') {
+            const statusElement = document.getElementById('status');
+            statusElement.textContent = message;
+            statusElement.className = `status ${type}`;
+        }
+
+        // 等待Mol*库加载
+        async function waitForMolstar() {
+            return new Promise((resolve, reject) => {
+                if (typeof window.molstar !== 'undefined') {
+                    resolve();
+                    return;
+                }
+                
+                let attempts = 0;
+                const maxAttempts = 50;
+                
+                const checkMolstar = () => {
+                    attempts++;
+                    if (typeof window.molstar !== 'undefined') {
+                        resolve();
+                    } else if (attempts >= maxAttempts) {
+                        reject(new Error('Mol*库加载超时'));
+                    } else {
+                        setTimeout(checkMolstar, 100);
+                    }
+                };
+                
+                checkMolstar();
+            });
+        }
+
+        // 初始化Mol*查看器
+        async function initMolstar() {
+            if (isInitialized) return true;
+
+            try {
+                log('等待Mol*库加载...');
+                updateStatus('等待Mol*库加载...', 'loading');
+                
+                await waitForMolstar();
+                log('Mol*库加载成功');
+
+                const container = document.getElementById('structure-viewer');
+                container.innerHTML = '';
+
+                const config = {
+                    layoutIsExpanded: false,
+                    layoutShowControls: true,
+                    layoutShowRemoteState: false,
+                    layoutShowSequence: true,
+                    layoutShowLog: false,
+                    layoutShowLeftPanel: false,
+                    viewportShowExpand: true,
+                    viewportShowSelectionMode: false,
+                    viewportShowAnimation: false
+                };
+
+                log('初始化Mol*查看器...');
+                molstarViewer = await window.molstar.Viewer.create(container, config);
+                
+                isInitialized = true;
+                log('Mol*查看器初始化成功');
+                updateStatus('Mol*查看器已初始化', 'success');
+                return true;
+
+            } catch (error) {
+                log(`初始化失败: ${error.message}`, 'error');
+                updateStatus('初始化失败', 'error');
+                return false;
+            }
+        }
+
+        // 测试API连接
+        async function testConnection() {
+            try {
+                log('测试API连接...');
+                updateStatus('测试API连接...', 'loading');
+                
+                const response = await fetch('api_protein_structure.php?plz_id=test&action=info');
+                const data = await response.json();
+                
+                log(`API响应: ${JSON.stringify(data)}`);
+                updateStatus('API连接正常', 'success');
+                
+            } catch (error) {
+                log(`API连接失败: ${error.message}`, 'error');
+                updateStatus('API连接失败', 'error');
+            }
+        }
+
+        // 检查Mol*库
+        function checkMolstar() {
+            if (typeof window.molstar !== 'undefined') {
+                log('Mol*库已加载');
+                updateStatus('Mol*库已加载', 'success');
+            } else {
+                log('Mol*库未加载', 'error');
+                updateStatus('Mol*库未加载', 'error');
+            }
+        }
+
+        // 加载测试结构
+        async function loadTestStructure() {
+            await loadStructure('00142236f3');
+        }
+
+        // 加载自定义结构
+        async function loadCustomStructure() {
+            const plzId = document.getElementById('plz-input').value.trim();
+            if (!plzId) {
+                alert('请输入PLZ_ID');
+                return;
+            }
+            await loadStructure(plzId);
+        }
+
+        // 加载结构
+        async function loadStructure(plzId) {
+            try {
+                if (!isInitialized) {
+                    const success = await initMolstar();
+                    if (!success) return;
+                }
+
+                log(`加载结构: ${plzId}`);
+                updateStatus('正在加载结构...', 'loading');
+
+                // 清除现有结构
+                await molstarViewer.clear();
+
+                // 构建PDB URL
+                const pdbUrl = `api_protein_structure.php?plz_id=${plzId}&type=predicted&action=pdb`;
+                log(`PDB URL: ${pdbUrl}`);
+
+                // 加载结构
+                const data = await molstarViewer.loadStructureFromUrl(pdbUrl, 'pdb');
+                
+                if (data) {
+                    log(`结构加载成功: ${plzId}`);
+                    updateStatus(`结构已加载: ${plzId}`, 'success');
+                } else {
+                    throw new Error('结构数据为空');
+                }
+
+            } catch (error) {
+                log(`加载结构失败: ${error.message}`, 'error');
+                updateStatus('加载结构失败', 'error');
+            }
+        }
+
+        // 清除查看器
+        async function clearViewer() {
+            if (molstarViewer) {
+                await molstarViewer.clear();
+                log('查看器已清除');
+                updateStatus('查看器已清除', '');
+            }
+        }
+
+        // 页面加载时初始化
+        document.addEventListener('DOMContentLoaded', async () => {
+            log('页面加载完成，开始初始化...');
+            await initMolstar();
+        });
+
+    </script>
+</body>
+</html>

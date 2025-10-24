@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D结构查看器测试 - PlaszymeDB</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/molstar@latest/build/viewer/molstar.css" type="text/css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .controls {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .control-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+        
+        label {
+            min-width: 100px;
+            font-weight: 500;
+        }
+        
+        input, select {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        input {
+            flex: 1;
+        }
+        
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+        
+        button:hover {
+            background: #45a049;
+        }
+        
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .viewer-container {
+            width: 100%;
+            height: 600px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #molstar-viewer {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .status {
+            padding: 10px 15px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            display: none;
+        }
+        
+        .status.show {
+            display: block;
+        }
+        
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .status.info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        
+        .examples {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        
+        .examples h3 {
+            margin-bottom: 10px;
+            color: #2e7d32;
+        }
+        
+        .example-btn {
+            background: #2e7d32;
+            margin: 5px;
+            padding: 6px 12px;
+            font-size: 13px;
+        }
+        
+        .example-btn:hover {
+            background: #1b5e20;
+        }
+        
+        .info-panel {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            border: 1px solid #ffeaa7;
+        }
+        
+        .info-panel h3 {
+            margin-bottom: 10px;
+            color: #856404;
+        }
+        
+        .info-panel code {
+            background: #fff;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧬 3D结构查看器测试</h1>
+        
+        <div class="info-panel">
+            <h3>📋 使用说明</h3>
+            <p><strong>1.</strong> 输入PLZ_ID（如 <code>866554aa77</code>）</p>
+            <p><strong>2.</strong> 选择结构类型（预测/实验）</p>
+            <p><strong>3.</strong> 点击"加载结构"按钮</p>
+            <p><strong>4.</strong> 或者点击下方示例按钮快速测试</p>
+        </div>
+        
+        <div class="examples">
+            <h3>🎯 快速测试示例</h3>
+            <p>点击下方按钮快速加载示例结构：</p>
+            <button class="example-btn" onclick="loadExample('866554aa77', 'predicted')">X0001 - 预测结构</button>
+            <button class="example-btn" onclick="loadExample('0c1b4dd3c4', 'predicted')">X0004 - 预测结构</button>
+            <button class="example-btn" onclick="loadExample('bd7ef0ab46', 'experimental')">X0223 - 实验结构 (8AIR)</button>
+            <button class="example-btn" onclick="loadExample('ba04d67a0c', 'experimental')">X0321 - 实验结构 (6SBN)</button>
+        </div>
+        
+        <div class="controls">
+            <div class="control-row">
+                <label>PLZ_ID:</label>
+                <input type="text" id="plz-id-input" placeholder="输入PLZ_ID，如: 866554aa77">
+            </div>
+            
+            <div class="control-row">
+                <label>结构类型:</label>
+                <select id="structure-type">
+                    <option value="predicted">预测结构 (AlphaFold)</option>
+                    <option value="experimental">实验结构 (X-ray/NMR)</option>
+                </select>
+            </div>
+            
+            <div class="control-row">
+                <button id="load-btn" onclick="loadStructure()">🔬 加载结构</button>
+                <button onclick="clearViewer()">🗑️ 清空视图</button>
+                <button onclick="checkAPI()">🔍 检查API</button>
+            </div>
+        </div>
+        
+        <div id="status-message" class="status"></div>
+        
+        <div class="viewer-container">
+            <div id="molstar-viewer"></div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/molstar@latest/build/viewer/molstar.js"></script>
+    <script>
+        let viewer = null;
+        
+        // 初始化Mol*查看器
+        async function initViewer() {
+            if (viewer) return;
+            
+            try {
+                showStatus('正在初始化3D查看器...', 'info');
+                
+                viewer = await molstar.Viewer.create('molstar-viewer', {
+                    layoutIsExpanded: false,
+                    layoutShowControls: true,
+                    layoutShowRemoteState: false,
+                    layoutShowSequence: true,
+                    layoutShowLog: false,
+                    layoutShowLeftPanel: true,
+                    viewportShowExpand: true,
+                    viewportShowSelectionMode: false,
+                    viewportShowAnimation: false,
+                });
+                
+                showStatus('3D查看器初始化成功！', 'success');
+                setTimeout(() => hideStatus(), 2000);
+            } catch (error) {
+                showStatus('初始化失败: ' + error.message, 'error');
+                console.error('初始化Mol*失败:', error);
+            }
+        }
+        
+        // 显示状态消息
+        function showStatus(message, type = 'info') {
+            const statusDiv = document.getElementById('status-message');
+            statusDiv.textContent = message;
+            statusDiv.className = 'status show ' + type;
+        }
+        
+        // 隐藏状态消息
+        function hideStatus() {
+            const statusDiv = document.getElementById('status-message');
+            statusDiv.classList.remove('show');
+        }
+        
+        // 加载结构
+        async function loadStructure() {
+            const plzId = document.getElementById('plz-id-input').value.trim();
+            const structureType = document.getElementById('structure-type').value;
+            
+            if (!plzId) {
+                showStatus('请输入PLZ_ID', 'error');
+                return;
+            }
+            
+            if (!viewer) {
+                await initViewer();
+            }
+            
+            try {
+                showStatus(`正在加载结构 ${plzId} (${structureType})...`, 'info');
+                
+                // 先检查结构是否存在
+                const infoUrl = `api_protein_structure.php?plz_id=${plzId}&type=${structureType}&action=info`;
+                const infoResponse = await fetch(infoUrl);
+                const infoData = await infoResponse.json();
+                
+                if (infoData.error) {
+                    throw new Error(infoData.message);
+                }
+                
+                if (!infoData.files.pdb_exists) {
+                    throw new Error(`PDB文件不存在 (XID: ${infoData.xid})`);
+                }
+                
+                console.log('结构信息:', infoData);
+                
+                // 清空当前结构
+                await viewer.clear();
+                
+                // 加载PDB文件
+                const pdbUrl = `api_protein_structure.php?plz_id=${plzId}&type=${structureType}&action=pdb`;
+                const pdbResponse = await fetch(pdbUrl);
+                
+                if (!pdbResponse.ok) {
+                    throw new Error(`HTTP ${pdbResponse.status}: ${pdbResponse.statusText}`);
+                }
+                
+                const pdbText = await pdbResponse.text();
+                
+                // 使用Mol*加载PDB数据
+                const data = await viewer.loadPdb(pdbText, {
+                    representationParams: {
+                        theme: { globalName: 'chain-id' }
+                    }
+                });
+                
+                showStatus(`✓ 加载成功！PLZ_ID: ${plzId}, XID: ${infoData.xid}`, 'success');
+                
+                if (infoData.enzyme_info) {
+                    console.log('酶信息:', infoData.enzyme_info);
+                }
+                
+            } catch (error) {
+                showStatus(`加载失败: ${error.message}`, 'error');
+                console.error('加载结构失败:', error);
+            }
+        }
+        
+        // 清空查看器
+        async function clearViewer() {
+            if (!viewer) {
+                showStatus('查看器未初始化', 'error');
+                return;
+            }
+            
+            try {
+                await viewer.clear();
+                showStatus('视图已清空', 'success');
+                setTimeout(() => hideStatus(), 2000);
+            } catch (error) {
+                showStatus('清空失败: ' + error.message, 'error');
+            }
+        }
+        
+        // 检查API
+        async function checkAPI() {
+            const plzId = document.getElementById('plz-id-input').value.trim();
+            const structureType = document.getElementById('structure-type').value;
+            
+            if (!plzId) {
+                showStatus('请输入PLZ_ID', 'error');
+                return;
+            }
+            
+            try {
+                showStatus('正在检查API...', 'info');
+                
+                const infoUrl = `api_protein_structure.php?plz_id=${plzId}&type=${structureType}&action=info`;
+                const response = await fetch(infoUrl);
+                const data = await response.json();
+                
+                console.log('API响应:', data);
+                
+                if (data.error) {
+                    showStatus(`API错误: ${data.message}`, 'error');
+                } else {
+                    const status = [
+                        `PLZ_ID: ${data.plz_id}`,
+                        `XID: ${data.xid}`,
+                        `PDB存在: ${data.files.pdb_exists ? '✓' : '✗'}`,
+                        `JSON存在: ${data.files.json_exists ? '✓' : '✗'}`
+                    ].join(' | ');
+                    
+                    showStatus(`✓ API正常 - ${status}`, 'success');
+                }
+                
+            } catch (error) {
+                showStatus(`API检查失败: ${error.message}`, 'error');
+                console.error('API检查失败:', error);
+            }
+        }
+        
+        // 加载示例
+        function loadExample(plzId, type) {
+            document.getElementById('plz-id-input').value = plzId;
+            document.getElementById('structure-type').value = type;
+            loadStructure();
+        }
+        
+        // 页面加载完成后初始化
+        window.addEventListener('load', () => {
+            console.log('页面加载完成，准备初始化查看器');
+            // 延迟初始化，让页面先渲染
+            setTimeout(initViewer, 100);
+        });
+    </script>
+</body>
+</html>
+

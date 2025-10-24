@@ -1,0 +1,129 @@
+================================================================================
+                    PlaszymeDB - ABOUT PAGE CONTENT
+================================================================================
+
+================================================================================
+ABOUT PlaszymeDB
+================================================================================
+
+PlaszymeDB is a comprehensive database dedicated to plastic-degrading enzymes, 
+providing researchers worldwide with detailed information about enzymes capable 
+of breaking down various plastic polymers.
+
+
+================================================================================
+DATABASE OVERVIEW
+================================================================================
+
+The database currently contains 474 plastic-degrading enzymes from diverse 
+microorganisms that have been reported in the scientific literature for their 
+plastic biodegradation capabilities. These enzymes target 34 different types 
+of plastic polymers, with detailed characterization data including 3D 
+structures, phylogenetic relationships...
+
+PlaszymeDB is updated regularly to incorporate new discoveries and research 
+findings in the rapidly evolving field of plastic biodegradation. The database 
+serves as a central resource for researchers working on plastic pollution 
+solutions, enzyme engineering, and environmental biotechnology applications.
+
+
+================================================================================
+DATABASE FEATURES
+================================================================================
+
+PlaszymeDB provides several options for exploring and utilizing the curated 
+enzyme data:
+
+🔍 Search and Browse
+   Search and browse enzymes by name, EC number, plastic type, or host 
+   organism with advanced filtering capabilities
+
+🧬 Detailed Information
+   Access detailed enzyme information including sequences, structures, and 
+   biochemical properties
+
+🔬 BLAST Search
+   Perform BLAST searches to identify similar sequences in the curated 
+   database
+
+🌳 Phylogenetic Analysis
+   Explore evolutionary relationships through interactive phylogenetic trees 
+   powered by iTOL
+
+📊 Statistics and Visualizations
+   View comprehensive statistics and visualizations of enzyme distribution 
+   and properties
+
+💾 Data Download
+   Download sequence data and metadata in standard formats for further 
+   analysis
+
+
+================================================================================
+DATA SOURCES AND QUALITY
+================================================================================
+
+The enzyme items in PlaszymeDB have mainly been integrated and collected from within the degradation enzyme databases (such as PMBD, PlasticDB, PAZY), and have undergone comparison and verification with biological databases (such as UniProt, NCBI and PDB). Each entry contains diverse information and is internally displayed.
+
+The database maintains strict quality control standards, with regular 
+validation of sequence data, structural information, and literature 
+references. Cross-references to external databases ensure data consistency 
+and provide users with access to additional resources and information.
+
+
+================================================================================
+CITATION
+================================================================================
+
+If you use PlaszymeDB in your research, please cite our work. A peer-reviewed 
+publication describing the database is currently in preparation and will be 
+made available upon acceptance.
+
+Citation (Provisional):
+----------------------
+PlaszymeDB: A Comprehensive Database of Plastic-Degrading Enzymes. 
+[Authors to be determined]. [Journal to be determined], [Year]. 
+DOI: [To be assigned upon publication]
+
+Note: Full citation information will be updated upon publication of the 
+associated research article.You are welcome to contact us via email first.
+
+
+================================================================================
+CONTRIBUTING TO PlaszymeDB
+================================================================================
+
+We welcome contributions from the scientific community to improve and expand 
+the database. If you have information about plastic-degrading enzymes that 
+could enhance our collection, or if you notice any errors or omissions, 
+please contact us with your suggestions.
+
+We actively monitor the literature for new discoveries and appreciate 
+notifications about recent publications or newly characterized enzymes that 
+should be included in future database updates.
+
+
+================================================================================
+CONTACT INFORMATION
+================================================================================
+
+For questions, suggestions, or collaboration inquiries, please reach out to 
+our team:
+
+Email:          sci.igem@xjtlu.edu.cn
+GitHub:         https://github.com/Tsutayaaa/PlaszymeDB
+Institution:    XJTLU-AI-CHINA
+Last Updated:   October 2025
+
+
+================================================================================
+FOOTER INFORMATION
+================================================================================
+
+
+
+================================================================================
+                        END OF DOCUMENT
+================================================================================
+Exported: October 10, 2025
+

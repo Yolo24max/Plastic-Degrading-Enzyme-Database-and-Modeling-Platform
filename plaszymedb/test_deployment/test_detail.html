@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试详情页面功能</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .test-button {
+            background: #005eb8;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        .test-button:hover {
+            background: #004c9a;
+        }
+        .result {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>PlaszymeDB 详情页面功能测试</h1>
+    
+    <h2>测试数据库连接和数据获取</h2>
+    
+    <button class="test-button" onclick="testDatabaseConnection()">测试数据库连接</button>
+    <button class="test-button" onclick="testGetEnzymeDetail('00142236f3')">测试获取酶详情 (00142236f3)</button>
+    <button class="test-button" onclick="testSearch()">测试搜索功能</button>
+    
+    <div id="test-results"></div>
+    
+    <h2>模拟查看链接点击</h2>
+    <p>模拟点击浏览页面中的"查看"链接：</p>
+    <a href="#" class="test-button" onclick="simulateViewClick('00142236f3')" style="text-decoration: none; display: inline-block;">
+        查看 PLZ_ID: 00142236f3
+    </a>
+    
+    <script>
+        // 测试数据库连接
+        async function testDatabaseConnection() {
+            try {
+                const response = await fetch('search.php?search=');
+                const data = await response.json();
+                showResult('数据库连接测试', data.success ? '✅ 成功' : '❌ 失败: ' + data.message);
+            } catch (error) {
+                showResult('数据库连接测试', '❌ 错误: ' + error.message);
+            }
+        }
+        
+        // 测试获取酶详情
+        async function testGetEnzymeDetail(plzId) {
+            try {
+                const response = await fetch(`get_enzyme_detail.php?plz_id=${encodeURIComponent(plzId)}`);
+                const data = await response.json();
+                
+                if (data.success) {
+                    showResult('获取酶详情测试', '✅ 成功获取数据', JSON.stringify(data.enzyme, null, 2));
+                } else {
+                    showResult('获取酶详情测试', '❌ 失败: ' + data.message);
+                }
+            } catch (error) {
+                showResult('获取酶详情测试', '❌ 错误: ' + error.message);
+            }
+        }
+        
+        // 测试搜索功能
+        async function testSearch() {
+            try {
+                const response = await fetch('search.php?search=PET');
+                const data = await response.json();
+                
+                if (data.success) {
+                    showResult('搜索功能测试', `✅ 成功找到 ${data.results.length} 条结果`, 
+                        `总数: ${data.total}, 示例结果: ${JSON.stringify(data.results[0] || {}, null, 2)}`);
+                } else {
+                    showResult('搜索功能测试', '❌ 失败: ' + data.message);
+                }
+            } catch (error) {
+                showResult('搜索功能测试', '❌ 错误: ' + error.message);
+            }
+        }
+        
+        // 模拟查看链接点击
+        function simulateViewClick(plzId) {
+            alert(`模拟点击查看链接，PLZ_ID: ${plzId}\n这将跳转到主页面的详情页面。`);
+            // 实际应用中，这里会调用 showPage('detail', plzId)
+            window.open(`V9.html#detail?plz_id=${plzId}`, '_blank');
+        }
+        
+        // 显示测试结果
+        function showResult(title, message, details = '') {
+            const resultsDiv = document.getElementById('test-results');
+            const resultDiv = document.createElement('div');
+            resultDiv.className = 'result';
+            resultDiv.innerHTML = `
+                <h3>${title}</h3>
+                <p>${message}</p>
+                ${details ? `<pre style="background: #fff; padding: 10px; border-radius: 4px; overflow-x: auto; font-size: 12px;">${details}</pre>` : ''}
+            `;
+            resultsDiv.appendChild(resultDiv);
+        }
+    </script>
+</body>
+</html>

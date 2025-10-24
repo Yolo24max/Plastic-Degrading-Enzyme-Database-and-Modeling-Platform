@@ -1,0 +1,58 @@
+site_name: Mol* Viewer Documentation
+theme:
+  name: material
+
+  # 404 page
+  static_templates:
+    - 404.html
+
+  # Necessary for search to work properly
+  include_search_page: false
+  search_index_only: true
+
+  # Default values, taken from mkdocs_theme.yml
+  language: en
+  font:
+    text: Roboto
+    code: Roboto Mono
+  favicon: assets/favicon.png
+  icon:
+    logo: logo
+  features:
+    - navigation.instant
+    - navigation.tracking
+nav:
+  - Home: 'index.md'
+  - Images/Movies: 'Images_Movies.md'
+  - Common Actions: 'common-actions.md'
+  - Examples: 'examples.md'
+  - FAQ: 'faqs-scenarios.md'
+  - Glossary: 'glossary.md'
+  - Integrations: 'integrations.md'
+  - Making Selections: 'making-selections.md'
+  - Managing the display: 'managing-the-display.md'
+  - Maneuvering in Mol*: 'maneuvering-in-mol_.md'
+  - Mol* Cheat Sheet: 'mol_-cheat-sheet.md'
+  - Navigating by Sequence: 'navigating-by-sequence.md'
+  - Query Parameters: 'query-parameters.md'
+  - Tips:
+    - Illustrative Style: 'tips/illustrative-style/index.md'
+    - Measurements: 'tips/measurements/index.md'
+    - Movie Export: 'tips/movie-export/index.md'
+    - Quick Styles: 'tips/quick-styles/index.md'
+    - URL Parameters: 'tips/url-parameters/index.md'
+    - Version 3: 'tips/v3/index.md'
+  - Volumes and Segmentations:
+    - Overview: 'volumes_and_segmentations/overview.md'
+    - How To: 'volumes_and_segmentations/how-to.md'
+    - Examples: 'volumes_and_segmentations/examples.md'
+    - Database Contents: 'volumes_and_segmentations/database-contents.md'
+    - Known Issues: 'volumes_and_segmentations/known-issues.md'
+    - Hosting Locally: 'volumes_and_segmentations/running-molstarvs-locally.md'
+  - Extensions:
+    - MolViewSpec: 'extensions/mvs.md'
+
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+repo_url: https://github.com/molstar/viewer-docs

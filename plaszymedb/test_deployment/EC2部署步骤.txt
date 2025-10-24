@@ -1,0 +1,134 @@
+=============================================
+EC2 部署和测试 - 完整步骤
+=============================================
+
+【方法 1：本地自动部署】（推荐，5 分钟完成）
+---------------------------------------------
+
+步骤 1：在本地电脑打开终端
+   - Windows: 右键项目文件夹 → Git Bash Here
+   - 或使用 PowerShell（需要安装 bash）
+
+步骤 2：运行一键部署脚本
+   bash deploy_semicolon_fix.sh YOUR_EC2_IP
+
+   例如：
+   bash deploy_semicolon_fix.sh 18.237.158.100
+
+步骤 3：等待完成（看到 "部署成功！"）
+
+步骤 4：在浏览器测试
+   http://YOUR_EC2_IP/test_semicolon_fix.html
+   点击 4 个测试按钮，确保都是 ✅
+
+
+【方法 2：手动 SCP 上传】（如果脚本不工作）
+---------------------------------------------
+
+步骤 1：在本地电脑打开终端，进入项目目录
+   cd C:\xampp\htdocs\plaszymedb\deploy_package
+
+步骤 2：上传修复的文件到服务器
+   scp -i PlaszymeDB_AWS.pem ^
+       protein_viewer_optimized.js ^
+       protein_3d_viewer.js ^
+       api_protein_structure.php ^
+       test_semicolon_fix.html ^
+       ec2-user@YOUR_EC2_IP:/var/www/html/
+
+   （注意：替换 YOUR_EC2_IP 为您的实际 IP）
+
+步骤 3：登录服务器检查
+   ssh -i PlaszymeDB_AWS.pem ec2-user@YOUR_EC2_IP
+
+步骤 4：在服务器上验证文件
+   cd /var/www/html
+   ls -lh protein_viewer_optimized.js protein_3d_viewer.js api_protein_structure.php
+   
+   检查文件时间戳是否是最新的
+
+步骤 5：退出服务器
+   exit
+
+步骤 6：在浏览器测试
+   http://YOUR_EC2_IP/test_semicolon_fix.html
+
+
+【方法 3：在服务器上手动修改】（不推荐，容易出错）
+---------------------------------------------
+
+如果您坚持在服务器上直接修改：
+
+步骤 1：SSH 登录服务器
+   ssh -i PlaszymeDB_AWS.pem ec2-user@YOUR_EC2_IP
+
+步骤 2：备份原文件
+   cd /var/www/html
+   cp protein_viewer_optimized.js protein_viewer_optimized.js.bak
+   cp protein_3d_viewer.js protein_3d_viewer.js.bak
+   cp api_protein_structure.php api_protein_structure.php.bak
+
+步骤 3：编辑 protein_viewer_optimized.js
+   nano protein_viewer_optimized.js
+   
+   找到第 725 行（Ctrl+_ 输入 725）：
+   const url = `api_protein_structure.php?plz_id=${plzId}&type=${type}&action=pdb`;
+   
+   改为：
+   const url = `api_protein_structure.php?plz_id=${encodeURIComponent(plzId)}&type=${type}&action=pdb`;
+   
+   找到第 1039 行（Ctrl+_ 输入 1039）：
+   fetch(`api_protein_structure.php?plz_id=${plzId}&type=${type}&action=pdb`)
+   
+   改为：
+   fetch(`api_protein_structure.php?plz_id=${encodeURIComponent(plzId)}&type=${type}&action=pdb`)
+   
+   保存：Ctrl+O，回车，退出：Ctrl+X
+
+步骤 4：编辑 protein_3d_viewer.js
+   nano protein_3d_viewer.js
+   
+   找到第 428 行：
+   改为 encodeURIComponent(plzId)
+   
+   找到第 626 行：
+   改为 encodeURIComponent(plzId)
+   
+   保存并退出
+
+步骤 5：编辑 api_protein_structure.php
+   nano api_protein_structure.php
+   
+   找到约第 42 行的 $plz_id 获取部分
+   添加分号分割逻辑（参考 deploy_package/api_protein_structure.php）
+   
+   保存并退出
+
+步骤 6：上传测试页面
+   （需要先在本地创建，然后 SCP 上传）
+
+
+=============================================
+推荐使用【方法 1】或【方法 2】
+方法 3 容易出错且耗时
+=============================================
+
+测试验证：
+---------
+1. 打开 http://YOUR_EC2_IP/test_semicolon_fix.html
+2. 点击 4 个测试按钮
+3. 确保都显示：
+   ✅ 成功！PLZ ID: xxx, XID: Xxxx, PDB 大小: xxx bytes
+
+如果任何测试失败：
+- 检查浏览器控制台（F12）查看错误
+- 检查服务器文件是否正确更新
+- 对比本地 deploy_package 中的文件
+
+需要帮助？
+---------
+如果部署遇到问题，请告诉我：
+1. 您使用的哪个方法
+2. 错误信息是什么
+3. 您的操作系统（Windows/Mac/Linux）
+
