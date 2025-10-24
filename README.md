@@ -5,18 +5,41 @@
 ## Project Overview
 
 PlaszymeDB is a comprehensive plastic-degrading enzyme prediction and analysis platform that provides researchers worldwide with a complete toolchain from sequence prediction to structural analysis, from database search to phylogenetic analysis.
+
+### 📹 Demo Videos
+
+<div align="center">
+
+**🎬 [PlaszymeAlpha Demo](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/raw/main/demo/plaszymeAlpha.mp4)**
+
+https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/assets/plaszymeAlpha.mp4
+
+---
+
+**🎬 [PlaszymeDB Demo](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/raw/main/demo/plaszymeDB.mp4)**
+
+https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/assets/plaszymeDB.mp4
+
+---
+
+**🎬 [PlaszymeDB & PlaszymeModel Demo](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/raw/main/demo/plaszymeDB_and_plaszymeModel.mp4)**
+
+https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/assets/plaszymeDB_and_plaszymeModel.mp4
+
+---
+
+**🎬 [PlaszymeX Demo](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/raw/main/demo/plaszymeX.mp4)**
+
+https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/assets/plaszymeX.mp4
+
+</div>
+
+---
+
 ![Image 1](images/1.png)
 ![Image 2](images/2.png)
 ![Image 3](images/3.png)
 ![Image 4](images/4.png)
-
-### Demo Video
-<video src="https://raw.githubusercontent.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/main/demo/plaszymeDB_and_plaszymeModel.mp4" controls width="100%">
-  <source src="https://raw.githubusercontent.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/main/demo/plaszymeDB_and_plaszymeModel.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-
-*Demo: PlaszymeDB Database and Prediction Model Usage*
 
 ### Core Data
 - **474** plastic-degrading enzymes
