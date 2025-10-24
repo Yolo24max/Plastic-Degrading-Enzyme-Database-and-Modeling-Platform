@@ -16,7 +16,7 @@ PlaszymeDB is a comprehensive plastic-degrading enzyme prediction and analysis p
 Your browser does not support the video tag.
 </video>
 
-[📥 Download PlaszymeDB & PlaszymeModel Demo](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/raw/main/demo/plaszymeDB_and_plaszymeModel.mp4) | [🎬 Watch on Bilibili](https://www.bilibili.com/video/BV1rAsnzMEcW/)
+[📥 Download PlaszymeDB & PlaszymeModel Demo](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/raw/main/demo/plaszymeDB_and_plaszymeModel.mp4) | [🎬 Watch on Bilibili](https://www.bilibili.com/video/BV1kZsJzrES7/?vd_source=9b1d8c517682332c668a3fdc310aaae9)
 
 ---
 
@@ -36,7 +36,7 @@ Your browser does not support the video tag.
 Your browser does not support the video tag.
 </video>
 
-[📥 Download PlaszymeAlpha Demo](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/raw/main/demo/plaszymeAlpha.mp4) | [🎬 Watch on Bilibili](https://www.bilibili.com/video/BV1kZsJzrES7/)
+[📥 Download PlaszymeAlpha Demo](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/raw/main/demo/plaszymeAlpha.mp4) | [🎬 Watch on Bilibili](https://www.bilibili.com/video/BV1rAsnzMEcS/?spm_id_from=333.1387.upload.video_card.click&vd_source=9b1d8c517682332c668a3fdc310aaae9)
 
 ---
 
@@ -46,7 +46,7 @@ Your browser does not support the video tag.
 Your browser does not support the video tag.
 </video>
 
-[📥 Download PlaszymeX Demo](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/raw/main/demo/plaszymeX.mp4) | [🎬 Watch on Bilibili](https://www.bilibili.com/video/BV1rAsnzMEcS/)
+[📥 Download PlaszymeX Demo](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/raw/main/demo/plaszymeX.mp4) | [🎬 Watch on Bilibili](https://www.bilibili.com/video/BV1rAsnzMEcW/?spm_id_from=333.1387.upload.video_card.click&vd_source=9b1d8c517682332c668a3fdc310aaae9)
 
 </div>
 
