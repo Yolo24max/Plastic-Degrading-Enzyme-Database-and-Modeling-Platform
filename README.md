@@ -6,35 +6,39 @@
 
 PlaszymeDB is a comprehensive plastic-degrading enzyme prediction and analysis platform that provides researchers worldwide with a complete toolchain from sequence prediction to structural analysis, from database search to phylogenetic analysis.
 
-### 📹 Demo Videos
+### 📹 Demo Videos 
+
+> **💡 Tip**: Click on the video player below to watch directly, or click "View raw" to download.  
+> 
 
 <div align="center">
 
-### 🎬 **[PlaszymeAlpha Demo](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/blob/main/demo/plaszymeAlpha.mp4)**
+### 🎬 PlaszymeAlpha Demo
 
-[![PlaszymeAlpha](https://img.shields.io/badge/▶️_Watch-PlaszymeAlpha-blue?style=for-the-badge)](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/blob/main/demo/plaszymeAlpha.mp4)
-
----
-
-### 🎬 **[PlaszymeDB Demo](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/blob/main/demo/plaszymeDB.mp4)**
-
-[![PlaszymeDB](https://img.shields.io/badge/▶️_Watch-PlaszymeDB-green?style=for-the-badge)](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/blob/main/demo/plaszymeDB.mp4)
+https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/assets/plaszymeAlpha.mp4
 
 ---
 
-### 🎬 **[PlaszymeDB & PlaszymeModel Demo](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/blob/main/demo/plaszymeDB_and_plaszymeModel.mp4)**
+### 🎬 PlaszymeDB Demo
 
-[![PlaszymeDB_and_Model](https://img.shields.io/badge/▶️_Watch-PlaszymeDB__&__Model-orange?style=for-the-badge)](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/blob/main/demo/plaszymeDB_and_plaszymeModel.mp4)
+https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/assets/plaszymeDB.mp4
 
 ---
 
-### 🎬 **[PlaszymeX Demo](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/blob/main/demo/plaszymeX.mp4)**
+### 🎬 PlaszymeDB & PlaszymeModel Demo
 
-[![PlaszymeX](https://img.shields.io/badge/▶️_Watch-PlaszymeX-red?style=for-the-badge)](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/blob/main/demo/plaszymeX.mp4)
+https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/assets/plaszymeDB_and_plaszymeModel.mp4
+
+---
+
+### 🎬 PlaszymeX Demo
+
+https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/assets/plaszymeX.mp4
 
 </div>
 
 ---
+
 
 ![Image 1](images/1.png)
 ![Image 2](images/2.png)
