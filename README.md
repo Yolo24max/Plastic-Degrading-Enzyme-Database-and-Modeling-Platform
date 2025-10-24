@@ -10,27 +10,27 @@ PlaszymeDB is a comprehensive plastic-degrading enzyme prediction and analysis p
 
 <div align="center">
 
-**🎬 [PlaszymeAlpha Demo](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/raw/main/demo/plaszymeAlpha.mp4)**
+### 🎬 **[PlaszymeAlpha Demo](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/blob/main/demo/plaszymeAlpha.mp4)**
 
-https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/assets/plaszymeAlpha.mp4
-
----
-
-**🎬 [PlaszymeDB Demo](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/raw/main/demo/plaszymeDB.mp4)**
-
-https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/assets/plaszymeDB.mp4
+[![PlaszymeAlpha](https://img.shields.io/badge/▶️_Watch-PlaszymeAlpha-blue?style=for-the-badge)](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/blob/main/demo/plaszymeAlpha.mp4)
 
 ---
 
-**🎬 [PlaszymeDB & PlaszymeModel Demo](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/raw/main/demo/plaszymeDB_and_plaszymeModel.mp4)**
+### 🎬 **[PlaszymeDB Demo](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/blob/main/demo/plaszymeDB.mp4)**
 
-https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/assets/plaszymeDB_and_plaszymeModel.mp4
+[![PlaszymeDB](https://img.shields.io/badge/▶️_Watch-PlaszymeDB-green?style=for-the-badge)](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/blob/main/demo/plaszymeDB.mp4)
 
 ---
 
-**🎬 [PlaszymeX Demo](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/raw/main/demo/plaszymeX.mp4)**
+### 🎬 **[PlaszymeDB & PlaszymeModel Demo](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/blob/main/demo/plaszymeDB_and_plaszymeModel.mp4)**
 
-https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/assets/plaszymeX.mp4
+[![PlaszymeDB_and_Model](https://img.shields.io/badge/▶️_Watch-PlaszymeDB__&__Model-orange?style=for-the-badge)](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/blob/main/demo/plaszymeDB_and_plaszymeModel.mp4)
+
+---
+
+### 🎬 **[PlaszymeX Demo](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/blob/main/demo/plaszymeX.mp4)**
+
+[![PlaszymeX](https://img.shields.io/badge/▶️_Watch-PlaszymeX-red?style=for-the-badge)](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/blob/main/demo/plaszymeX.mp4)
 
 </div>
 
