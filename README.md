@@ -11,9 +11,8 @@ PlaszymeDB is a comprehensive plastic-degrading enzyme prediction and analysis p
 ![Image 4](images/4.png)
 
 ### Demo Video
-
-<video src="https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/blob/main/demo/plaszymeDB_and_plaszymeModel.mp4" controls width="100%">
-  <source src="https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/blob/main/demo/plaszymeDB_and_plaszymeModel.mp4" type="video/mp4">
+<video src="https://raw.githubusercontent.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/main/demo/plaszymeDB_and_plaszymeModel.mp4" controls width="100%">
+  <source src="https://raw.githubusercontent.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/main/demo/plaszymeDB_and_plaszymeModel.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
