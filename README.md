@@ -8,32 +8,45 @@ PlaszymeDB is a comprehensive plastic-degrading enzyme prediction and analysis p
 
 ### 📹 Demo Videos 
 
-> **💡 Tip**: Click on the video player below to watch directly, or click "View raw" to download.  
-> 
-
 <div align="center">
 
 ### 🎬 PlaszymeAlpha Demo
 
-https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/assets/plaszymeAlpha.mp4
+<video src="https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/raw/main/demo/plaszymeAlpha.mp4" controls="controls" style="max-width: 730px;">
+Your browser does not support the video tag.
+</video>
+
+[📥 Download PlaszymeAlpha Demo](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/raw/main/demo/plaszymeAlpha.mp4)
 
 ---
 
 ### 🎬 PlaszymeDB Demo
 
-https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/assets/plaszymeDB.mp4
+<video src="https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/raw/main/demo/plaszymeDB.mp4" controls="controls" style="max-width: 730px;">
+Your browser does not support the video tag.
+</video>
+
+[📥 Download PlaszymeDB Demo](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/raw/main/demo/plaszymeDB.mp4)
 
 ---
 
 ### 🎬 PlaszymeDB & PlaszymeModel Demo
 
-https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/assets/plaszymeDB_and_plaszymeModel.mp4
+<video src="https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/raw/main/demo/plaszymeDB_and_plaszymeModel.mp4" controls="controls" style="max-width: 730px;">
+Your browser does not support the video tag.
+</video>
+
+[📥 Download PlaszymeDB & PlaszymeModel Demo](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/raw/main/demo/plaszymeDB_and_plaszymeModel.mp4)
 
 ---
 
 ### 🎬 PlaszymeX Demo
 
-https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/assets/plaszymeX.mp4
+<video src="https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/raw/main/demo/plaszymeX.mp4" controls="controls" style="max-width: 730px;">
+Your browser does not support the video tag.
+</video>
+
+[📥 Download PlaszymeX Demo](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/raw/main/demo/plaszymeX.mp4)
 
 </div>
 
