@@ -16,7 +16,7 @@ PlaszymeDB is a comprehensive plastic-degrading enzyme prediction and analysis p
 Your browser does not support the video tag.
 </video>
 
-[📥 Download PlaszymeAlpha Demo](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/raw/main/demo/plaszymeAlpha.mp4)
+[📥 Download PlaszymeAlpha Demo](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/raw/main/demo/plaszymeAlpha.mp4) | [🎬 Watch on Bilibili](https://www.bilibili.com/video/BV1kZsJzrES7/)
 
 ---
 
@@ -26,7 +26,7 @@ Your browser does not support the video tag.
 Your browser does not support the video tag.
 </video>
 
-[📥 Download PlaszymeDB Demo](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/raw/main/demo/plaszymeDB.mp4)
+[📥 Download PlaszymeDB Demo](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/raw/main/demo/plaszymeDB.mp4) | [🎬 Watch on Bilibili](https://www.bilibili.com/video/BV1AZsJzkEvx/)
 
 ---
 
@@ -36,7 +36,7 @@ Your browser does not support the video tag.
 Your browser does not support the video tag.
 </video>
 
-[📥 Download PlaszymeDB & PlaszymeModel Demo](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/raw/main/demo/plaszymeDB_and_plaszymeModel.mp4)
+[📥 Download PlaszymeDB & PlaszymeModel Demo](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/raw/main/demo/plaszymeDB_and_plaszymeModel.mp4) | [🎬 Watch on Bilibili](https://www.bilibili.com/video/BV1rAsnzMEcW/)
 
 ---
 
@@ -46,12 +46,11 @@ Your browser does not support the video tag.
 Your browser does not support the video tag.
 </video>
 
-[📥 Download PlaszymeX Demo](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/raw/main/demo/plaszymeX.mp4)
+[📥 Download PlaszymeX Demo](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/raw/main/demo/plaszymeX.mp4) | [🎬 Watch on Bilibili](https://www.bilibili.com/video/BV1rAsnzMEcS/)
 
 </div>
 
 ---
-
 
 ![Image 1](images/1.png)
 ![Image 2](images/2.png)
