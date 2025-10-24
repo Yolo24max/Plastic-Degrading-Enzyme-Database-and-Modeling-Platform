@@ -10,13 +10,13 @@ PlaszymeDB is a comprehensive plastic-degrading enzyme prediction and analysis p
 
 <div align="center">
 
-### 🎬 PlaszymeAlpha Demo
+### 🎬 PlaszymeDB & PlaszymeModel Demo
 
-<video src="https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/raw/main/demo/plaszymeAlpha.mp4" controls="controls" style="max-width: 730px;">
+<video src="https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/raw/main/demo/plaszymeDB_and_plaszymeModel.mp4" controls="controls" style="max-width: 730px;">
 Your browser does not support the video tag.
 </video>
 
-[📥 Download PlaszymeAlpha Demo](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/raw/main/demo/plaszymeAlpha.mp4) | [🎬 Watch on Bilibili](https://www.bilibili.com/video/BV1kZsJzrES7/)
+[📥 Download PlaszymeDB & PlaszymeModel Demo](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/raw/main/demo/plaszymeDB_and_plaszymeModel.mp4) | [🎬 Watch on Bilibili](https://www.bilibili.com/video/BV1rAsnzMEcW/)
 
 ---
 
@@ -30,13 +30,13 @@ Your browser does not support the video tag.
 
 ---
 
-### 🎬 PlaszymeDB & PlaszymeModel Demo
+### 🎬 PlaszymeAlpha Demo
 
-<video src="https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/raw/main/demo/plaszymeDB_and_plaszymeModel.mp4" controls="controls" style="max-width: 730px;">
+<video src="https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/raw/main/demo/plaszymeAlpha.mp4" controls="controls" style="max-width: 730px;">
 Your browser does not support the video tag.
 </video>
 
-[📥 Download PlaszymeDB & PlaszymeModel Demo](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/raw/main/demo/plaszymeDB_and_plaszymeModel.mp4) | [🎬 Watch on Bilibili](https://www.bilibili.com/video/BV1rAsnzMEcW/)
+[📥 Download PlaszymeAlpha Demo](https://github.com/Yolo24max/Plastic-Degrading-Enzyme-Database-and-Modeling-Platform/raw/main/demo/plaszymeAlpha.mp4) | [🎬 Watch on Bilibili](https://www.bilibili.com/video/BV1kZsJzrES7/)
 
 ---
 
