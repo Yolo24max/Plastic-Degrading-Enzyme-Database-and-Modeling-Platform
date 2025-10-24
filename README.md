@@ -3,7 +3,10 @@
 ## Project Overview
 
 PlaszymeDB is a comprehensive plastic-degrading enzyme prediction and analysis platform that provides researchers worldwide with a complete toolchain from sequence prediction to structural analysis, from database search to phylogenetic analysis.
-
+![Image 1](images/1.png)
+![Image 2](images/2.png)
+![Image 3](images/3.png)
+![Image 4](images/4.png)
 ### Core Data
 - **474** plastic-degrading enzymes
 - **34** types of plastic polymers
